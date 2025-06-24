@@ -4,6 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
+      "gpuType": "T4",
       "authorship_tag": "ABX9TyMnXEiBMw7lgUJbZt7vIaC6",
       "include_colab_link": true
     },
@@ -13,7 +14,8 @@
     },
     "language_info": {
       "name": "python"
-    }
+    },
+    "accelerator": "GPU"
   },
   "cells": [
     {
@@ -453,13 +455,16 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "qmUK0K6XcyDZ",
-        "outputId": "9751d699-91c9-4ffc-df7b-20882b827464"
+        "outputId": "48c18d94-2323-4667-8128-ed79e972e488"
       },
       "execution_count": null,
       "outputs": [
         {
-          "output_type": "stream",
+          "metadata": {
+            "tags": null
+          },
           "name": "stdout",
+          "output_type": "stream",
           "text": [
             "Starting Streamlit app in background...\n",
             "Streamlit app process initiated on port 8501\n",
@@ -468,7 +473,7 @@
             "Opening Cloudflare Tunnel...\n",
             "\n",
             "--- Cloudflare Tunnel Output (Live) ---\n",
-            "[Cloudflared STDERR]: 2025-06-24T15:16:36Z INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps\n"
+            "[Cloudflared STDERR]: 2025-06-24T15:58:23Z INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps\n"
           ]
         }
       ]
