@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyNmiDvNnMwu9yhAppQntS7l",
+      "authorship_tag": "ABX9TyMnXEiBMw7lgUJbZt7vIaC6",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -158,6 +158,7 @@
     {
       "cell_type": "code",
       "source": [
+        "%%writefile app.py\n",
         "import streamlit as st\n",
         "import pandas as pd\n",
         "import joblib\n",
