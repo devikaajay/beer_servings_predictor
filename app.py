@@ -4,7 +4,6 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "gpuType": "T4",
       "authorship_tag": "ABX9TyMnXEiBMw7lgUJbZt7vIaC6",
       "include_colab_link": true
     },
@@ -14,8 +13,7 @@
     },
     "language_info": {
       "name": "python"
-    },
-    "accelerator": "GPU"
+    }
   },
   "cells": [
     {
@@ -39,10 +37,102 @@
         "print(\"Libraries and Cloudflare Tunnel installed!\")"
       ],
       "metadata": {
-        "id": "RDpYuNsqcO5m"
+        "id": "RDpYuNsqcO5m",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "0661fe88-4613-4ac2-f887-5dbed6d749ae"
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Requirement already satisfied: pandas in /usr/local/lib/python3.11/dist-packages (2.2.2)\n",
+            "Requirement already satisfied: scikit-learn in /usr/local/lib/python3.11/dist-packages (1.6.1)\n",
+            "Requirement already satisfied: joblib in /usr/local/lib/python3.11/dist-packages (1.5.1)\n",
+            "Requirement already satisfied: matplotlib in /usr/local/lib/python3.11/dist-packages (3.10.0)\n",
+            "Requirement already satisfied: seaborn in /usr/local/lib/python3.11/dist-packages (0.13.2)\n",
+            "Collecting streamlit\n",
+            "  Downloading streamlit-1.46.0-py3-none-any.whl.metadata (9.0 kB)\n",
+            "Requirement already satisfied: numpy>=1.23.2 in /usr/local/lib/python3.11/dist-packages (from pandas) (2.0.2)\n",
+            "Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.11/dist-packages (from pandas) (2.9.0.post0)\n",
+            "Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.11/dist-packages (from pandas) (2025.2)\n",
+            "Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.11/dist-packages (from pandas) (2025.2)\n",
+            "Requirement already satisfied: scipy>=1.6.0 in /usr/local/lib/python3.11/dist-packages (from scikit-learn) (1.15.3)\n",
+            "Requirement already satisfied: threadpoolctl>=3.1.0 in /usr/local/lib/python3.11/dist-packages (from scikit-learn) (3.6.0)\n",
+            "Requirement already satisfied: contourpy>=1.0.1 in /usr/local/lib/python3.11/dist-packages (from matplotlib) (1.3.2)\n",
+            "Requirement already satisfied: cycler>=0.10 in /usr/local/lib/python3.11/dist-packages (from matplotlib) (0.12.1)\n",
+            "Requirement already satisfied: fonttools>=4.22.0 in /usr/local/lib/python3.11/dist-packages (from matplotlib) (4.58.4)\n",
+            "Requirement already satisfied: kiwisolver>=1.3.1 in /usr/local/lib/python3.11/dist-packages (from matplotlib) (1.4.8)\n",
+            "Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.11/dist-packages (from matplotlib) (24.2)\n",
+            "Requirement already satisfied: pillow>=8 in /usr/local/lib/python3.11/dist-packages (from matplotlib) (11.2.1)\n",
+            "Requirement already satisfied: pyparsing>=2.3.1 in /usr/local/lib/python3.11/dist-packages (from matplotlib) (3.2.3)\n",
+            "Requirement already satisfied: altair<6,>=4.0 in /usr/local/lib/python3.11/dist-packages (from streamlit) (5.5.0)\n",
+            "Requirement already satisfied: blinker<2,>=1.5.0 in /usr/local/lib/python3.11/dist-packages (from streamlit) (1.9.0)\n",
+            "Requirement already satisfied: cachetools<7,>=4.0 in /usr/local/lib/python3.11/dist-packages (from streamlit) (5.5.2)\n",
+            "Requirement already satisfied: click<9,>=7.0 in /usr/local/lib/python3.11/dist-packages (from streamlit) (8.2.1)\n",
+            "Requirement already satisfied: protobuf<7,>=3.20 in /usr/local/lib/python3.11/dist-packages (from streamlit) (5.29.5)\n",
+            "Requirement already satisfied: pyarrow>=7.0 in /usr/local/lib/python3.11/dist-packages (from streamlit) (18.1.0)\n",
+            "Requirement already satisfied: requests<3,>=2.27 in /usr/local/lib/python3.11/dist-packages (from streamlit) (2.32.3)\n",
+            "Requirement already satisfied: tenacity<10,>=8.1.0 in /usr/local/lib/python3.11/dist-packages (from streamlit) (9.1.2)\n",
+            "Requirement already satisfied: toml<2,>=0.10.1 in /usr/local/lib/python3.11/dist-packages (from streamlit) (0.10.2)\n",
+            "Requirement already satisfied: typing-extensions<5,>=4.4.0 in /usr/local/lib/python3.11/dist-packages (from streamlit) (4.14.0)\n",
+            "Collecting watchdog<7,>=2.1.5 (from streamlit)\n",
+            "  Downloading watchdog-6.0.0-py3-none-manylinux2014_x86_64.whl.metadata (44 kB)\n",
+            "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m44.3/44.3 kB\u001b[0m \u001b[31m1.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hRequirement already satisfied: gitpython!=3.1.19,<4,>=3.0.7 in /usr/local/lib/python3.11/dist-packages (from streamlit) (3.1.44)\n",
+            "Collecting pydeck<1,>=0.8.0b4 (from streamlit)\n",
+            "  Downloading pydeck-0.9.1-py2.py3-none-any.whl.metadata (4.1 kB)\n",
+            "Requirement already satisfied: tornado!=6.5.0,<7,>=6.0.3 in /usr/local/lib/python3.11/dist-packages (from streamlit) (6.4.2)\n",
+            "Requirement already satisfied: jinja2 in /usr/local/lib/python3.11/dist-packages (from altair<6,>=4.0->streamlit) (3.1.6)\n",
+            "Requirement already satisfied: jsonschema>=3.0 in /usr/local/lib/python3.11/dist-packages (from altair<6,>=4.0->streamlit) (4.24.0)\n",
+            "Requirement already satisfied: narwhals>=1.14.2 in /usr/local/lib/python3.11/dist-packages (from altair<6,>=4.0->streamlit) (1.43.0)\n",
+            "Requirement already satisfied: gitdb<5,>=4.0.1 in /usr/local/lib/python3.11/dist-packages (from gitpython!=3.1.19,<4,>=3.0.7->streamlit) (4.0.12)\n",
+            "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.11/dist-packages (from python-dateutil>=2.8.2->pandas) (1.17.0)\n",
+            "Requirement already satisfied: charset-normalizer<4,>=2 in /usr/local/lib/python3.11/dist-packages (from requests<3,>=2.27->streamlit) (3.4.2)\n",
+            "Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.11/dist-packages (from requests<3,>=2.27->streamlit) (3.10)\n",
+            "Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.11/dist-packages (from requests<3,>=2.27->streamlit) (2.4.0)\n",
+            "Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.11/dist-packages (from requests<3,>=2.27->streamlit) (2025.6.15)\n",
+            "Requirement already satisfied: smmap<6,>=3.0.1 in /usr/local/lib/python3.11/dist-packages (from gitdb<5,>=4.0.1->gitpython!=3.1.19,<4,>=3.0.7->streamlit) (5.0.2)\n",
+            "Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.11/dist-packages (from jinja2->altair<6,>=4.0->streamlit) (3.0.2)\n",
+            "Requirement already satisfied: attrs>=22.2.0 in /usr/local/lib/python3.11/dist-packages (from jsonschema>=3.0->altair<6,>=4.0->streamlit) (25.3.0)\n",
+            "Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /usr/local/lib/python3.11/dist-packages (from jsonschema>=3.0->altair<6,>=4.0->streamlit) (2025.4.1)\n",
+            "Requirement already satisfied: referencing>=0.28.4 in /usr/local/lib/python3.11/dist-packages (from jsonschema>=3.0->altair<6,>=4.0->streamlit) (0.36.2)\n",
+            "Requirement already satisfied: rpds-py>=0.7.1 in /usr/local/lib/python3.11/dist-packages (from jsonschema>=3.0->altair<6,>=4.0->streamlit) (0.25.1)\n",
+            "Downloading streamlit-1.46.0-py3-none-any.whl (10.1 MB)\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m10.1/10.1 MB\u001b[0m \u001b[31m46.0 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hDownloading pydeck-0.9.1-py2.py3-none-any.whl (6.9 MB)\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m6.9/6.9 MB\u001b[0m \u001b[31m47.8 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hDownloading watchdog-6.0.0-py3-none-manylinux2014_x86_64.whl (79 kB)\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m79.1/79.1 kB\u001b[0m \u001b[31m6.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hInstalling collected packages: watchdog, pydeck, streamlit\n",
+            "Successfully installed pydeck-0.9.1 streamlit-1.46.0 watchdog-6.0.0\n",
+            "--2025-06-24 16:15:30--  https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64\n",
+            "Resolving github.com (github.com)... 140.82.113.3\n",
+            "Connecting to github.com (github.com)|140.82.113.3|:443... connected.\n",
+            "HTTP request sent, awaiting response... 302 Found\n",
+            "Location: https://github.com/cloudflare/cloudflared/releases/download/2025.6.1/cloudflared-linux-amd64 [following]\n",
+            "--2025-06-24 16:15:30--  https://github.com/cloudflare/cloudflared/releases/download/2025.6.1/cloudflared-linux-amd64\n",
+            "Reusing existing connection to github.com:443.\n",
+            "HTTP request sent, awaiting response... 302 Found\n",
+            "Location: https://objects.githubusercontent.com/github-production-release-asset-2e65be/106867604/015db4d3-519c-4e00-a1a6-289640709684?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250624%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250624T161530Z&X-Amz-Expires=1800&X-Amz-Signature=d59201eee0fd3dd25dd7d6b3f35f8a1a4d84e7b69b7362fcc0026bff9bfc310d&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dcloudflared-linux-amd64&response-content-type=application%2Foctet-stream [following]\n",
+            "--2025-06-24 16:15:30--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/106867604/015db4d3-519c-4e00-a1a6-289640709684?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250624%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250624T161530Z&X-Amz-Expires=1800&X-Amz-Signature=d59201eee0fd3dd25dd7d6b3f35f8a1a4d84e7b69b7362fcc0026bff9bfc310d&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dcloudflared-linux-amd64&response-content-type=application%2Foctet-stream\n",
+            "Resolving objects.githubusercontent.com (objects.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...\n",
+            "Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.108.133|:443... connected.\n",
+            "HTTP request sent, awaiting response... 200 OK\n",
+            "Length: 41164185 (39M) [application/octet-stream]\n",
+            "Saving to: ‘cloudflared-linux-amd64’\n",
+            "\n",
+            "cloudflared-linux-a 100%[===================>]  39.26M   184MB/s    in 0.2s    \n",
+            "\n",
+            "2025-06-24 16:15:31 (184 MB/s) - ‘cloudflared-linux-amd64’ saved [41164185/41164185]\n",
+            "\n",
+            "Libraries and Cloudflare Tunnel installed!\n"
+          ]
+        }
+      ]
     },
     {
       "cell_type": "code",
@@ -141,10 +231,22 @@
         "print(\"Model training script finished successfully.\")"
       ],
       "metadata": {
-        "id": "pmUPEwAwcYNI"
+        "id": "pmUPEwAwcYNI",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "ad52af48-855d-4cd1-e79e-66b1af37c392"
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Writing model_training.py\n"
+          ]
+        }
+      ]
     },
     {
       "cell_type": "code",
@@ -152,10 +254,44 @@
         "!python model_training.py"
       ],
       "metadata": {
-        "id": "Y0gPkmYqckST"
+        "id": "Y0gPkmYqckST",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "ac86592d-e21d-4f07-dbda-234394890064"
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Starting model training script...\n",
+            "Dataset loaded successfully.\n",
+            "Starting data preprocessing...\n",
+            "Filled missing values in 'beer_servings' with median: 76.0\n",
+            "Filled missing values in 'spirit_servings' with median: 60.0\n",
+            "Filled missing values in 'wine_servings' with median: 9.0\n",
+            "Filled missing values in 'total_litres_of_pure_alcohol' with median: 4.25\n",
+            "Categorical features one-hot encoded.\n",
+            "Features for training: ['beer_servings', 'spirit_servings', 'wine_servings', 'country_Albania', 'country_Algeria', 'country_Andorra', 'country_Angola', 'country_Antigua & Barbuda', 'country_Argentina', 'country_Armenia', 'country_Australia', 'country_Austria', 'country_Azerbaijan', 'country_Bahamas', 'country_Bahrain', 'country_Bangladesh', 'country_Barbados', 'country_Belarus', 'country_Belgium', 'country_Belize', 'country_Benin', 'country_Bhutan', 'country_Bolivia', 'country_Bosnia-Herzegovina', 'country_Botswana', 'country_Brazil', 'country_Brunei', 'country_Bulgaria', 'country_Burkina Faso', 'country_Burundi', 'country_Cabo Verde', 'country_Cambodia', 'country_Cameroon', 'country_Canada', 'country_Central African Republic', 'country_Chad', 'country_Chile', 'country_China', 'country_Colombia', 'country_Comoros', 'country_Congo', 'country_Cook Islands', 'country_Costa Rica', \"country_Cote d'Ivoire\", 'country_Croatia', 'country_Cuba', 'country_Cyprus', 'country_Czech Republic', 'country_DR Congo', 'country_Denmark', 'country_Djibouti', 'country_Dominica', 'country_Dominican Republic', 'country_Ecuador', 'country_Egypt', 'country_El Salvador', 'country_Equatorial Guinea', 'country_Eritrea', 'country_Estonia', 'country_Ethiopia', 'country_Fiji', 'country_Finland', 'country_France', 'country_Gabon', 'country_Gambia', 'country_Georgia', 'country_Germany', 'country_Ghana', 'country_Greece', 'country_Grenada', 'country_Guatemala', 'country_Guinea', 'country_Guinea-Bissau', 'country_Guyana', 'country_Haiti', 'country_Honduras', 'country_Hungary', 'country_Iceland', 'country_India', 'country_Indonesia', 'country_Iran', 'country_Iraq', 'country_Ireland', 'country_Israel', 'country_Italy', 'country_Jamaica', 'country_Japan', 'country_Jordan', 'country_Kazakhstan', 'country_Kenya', 'country_Kiribati', 'country_Kuwait', 'country_Kyrgyzstan', 'country_Laos', 'country_Latvia', 'country_Lebanon', 'country_Lesotho', 'country_Liberia', 'country_Libya', 'country_Lithuania', 'country_Luxembourg', 'country_Macedonia', 'country_Madagascar', 'country_Malawi', 'country_Malaysia', 'country_Maldives', 'country_Mali', 'country_Malta', 'country_Marshall Islands', 'country_Mauritania', 'country_Mauritius', 'country_Mexico', 'country_Micronesia', 'country_Moldova', 'country_Monaco', 'country_Mongolia', 'country_Montenegro', 'country_Morocco', 'country_Mozambique', 'country_Myanmar', 'country_Namibia', 'country_Nauru', 'country_Nepal', 'country_Netherlands', 'country_New Zealand', 'country_Nicaragua', 'country_Niger', 'country_Nigeria', 'country_Niue', 'country_North Korea', 'country_Norway', 'country_Oman', 'country_Pakistan', 'country_Palau', 'country_Panama', 'country_Papua New Guinea', 'country_Paraguay', 'country_Peru', 'country_Philippines', 'country_Poland', 'country_Portugal', 'country_Qatar', 'country_Romania', 'country_Russian Federation', 'country_Rwanda', 'country_Samoa', 'country_San Marino', 'country_Sao Tome & Principe', 'country_Saudi Arabia', 'country_Senegal', 'country_Serbia', 'country_Seychelles', 'country_Sierra Leone', 'country_Singapore', 'country_Slovakia', 'country_Slovenia', 'country_Solomon Islands', 'country_Somalia', 'country_South Africa', 'country_South Korea', 'country_Spain', 'country_Sri Lanka', 'country_St. Kitts & Nevis', 'country_St. Lucia', 'country_St. Vincent & the Grenadines', 'country_Sudan', 'country_Suriname', 'country_Swaziland', 'country_Sweden', 'country_Switzerland', 'country_Syria', 'country_Tajikistan', 'country_Tanzania', 'country_Thailand', 'country_Timor-Leste', 'country_Togo', 'country_Tonga', 'country_Trinidad & Tobago', 'country_Tunisia', 'country_Turkey', 'country_Turkmenistan', 'country_Tuvalu', 'country_USA', 'country_Uganda', 'country_Ukraine', 'country_United Arab Emirates', 'country_United Kingdom', 'country_Uruguay', 'country_Uzbekistan', 'country_Vanuatu', 'country_Venezuela', 'country_Vietnam', 'country_Yemen', 'country_Zambia', 'country_Zimbabwe', 'continent_Asia', 'continent_Europe', 'continent_North America', 'continent_Oceania', 'continent_South America']\n",
+            "Data split into training (154 samples) and testing (39 samples).\n",
+            "\n",
+            "--- Training Linear Regression ---\n",
+            "R2-score for Linear Regression on evaluation data: 0.9277\n",
+            "\n",
+            "--- Training Random Forest Regressor ---\n",
+            "Fitting 3 folds for each of 18 candidates, totalling 54 fits\n",
+            "Best parameters for Random Forest Regressor: {'max_depth': None, 'max_features': 'sqrt', 'n_estimators': 100}\n",
+            "R2-score for Random Forest Regressor on evaluation data: 0.8161\n",
+            "\n",
+            "Best model selected for deployment: Linear Regression with R2-score: 0.9277\n",
+            "Best model saved as 'best_beer_predictor_model.joblib'\n",
+            "Feature columns saved as 'feature_columns.joblib'\n",
+            "Model training script finished successfully.\n"
+          ]
+        }
+      ]
     },
     {
       "cell_type": "code",
@@ -331,10 +467,22 @@
         "st.markdown(\"Powered by Streamlit, Scikit-learn, Matplotlib, and Seaborn.\")"
       ],
       "metadata": {
-        "id": "L9JUQNVmcodJ"
+        "id": "L9JUQNVmcodJ",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "a253c309-8448-492a-d968-4bc3ef0e3972"
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Writing app.py\n"
+          ]
+        }
+      ]
     },
     {
       "cell_type": "code",
@@ -455,16 +603,13 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "qmUK0K6XcyDZ",
-        "outputId": "48c18d94-2323-4667-8128-ed79e972e488"
+        "outputId": "aadf7bff-456d-4b88-ed79-29448c78e848"
       },
       "execution_count": null,
       "outputs": [
         {
-          "metadata": {
-            "tags": null
-          },
-          "name": "stdout",
           "output_type": "stream",
+          "name": "stdout",
           "text": [
             "Starting Streamlit app in background...\n",
             "Streamlit app process initiated on port 8501\n",
@@ -473,7 +618,7 @@
             "Opening Cloudflare Tunnel...\n",
             "\n",
             "--- Cloudflare Tunnel Output (Live) ---\n",
-            "[Cloudflared STDERR]: 2025-06-24T15:58:23Z INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps\n"
+            "[Cloudflared STDERR]: 2025-06-24T16:16:09Z INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps\n"
           ]
         }
       ]
